@@ -1,0 +1,73 @@
+<div class="detail-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <div class="header-content">
+      <button class="back-button" [routerLink]="['/authors']">
+        <i class="bi bi-arrow-left"></i>
+        <span>Volver</span>
+      </button>
+      <div class="title-wrapper">
+        <h1 class="main-title">
+          {{ authors.firstName }} {{ authors.lastName }}
+        </h1>
+        <p class="subtitle">Detalles del autor</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Author Information Card -->
+  <div class="author-card">
+    <div class="author-header">
+      <div class="author-avatar">
+        <i class="bi bi-person-circle book-icon"></i>
+      </div>
+      <div class="author-info">
+        <h2 class="author-name">
+          {{ authors.firstName }} {{ authors.lastName }}
+        </h2>
+        <div class="author-meta">
+          <span class="meta-item">
+            <i class="bi bi-book"></i>
+            libros publicados
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h3 class="section-title">
+        <i class="bi bi-journal-text"></i>
+        Titulo
+      </h3>
+      <p class="text-white">
+        {{ books?.title || "No hay biografía disponible." }}
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3 class="section-title text-white">
+        <i class="bi bi-book"></i>
+        Descripcion
+      </h3>
+
+      <div class="books-grid" *ngIf="books; else noBooks">
+        <div class="book-item">
+          <div class="book-cover">
+            <i class="bi bi-book"></i>
+          </div>
+          <div class="book-info">
+            <p class="text-white">{{ books.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noBooks>
+        <div class="empty-state">
+          <i class="bi bi-journal-x"></i>
+          <p class="text-white">No hay libros registrados para este autor</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<app-loading *ngIf="loadingService.isLoading$ | async"></app-loading>

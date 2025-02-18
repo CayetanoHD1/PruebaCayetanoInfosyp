@@ -1,0 +1,102 @@
+<div class="books-container">
+  <div class="header-section">
+    <div class="title-wrapper">
+      <h1 class="main-title text-black">Listado de Libro</h1>
+      <p class="subtitle">Gestiona tu colección de libro de manera eficiente</p>
+    </div>
+    <button class="add-button" (click)="goToCreateBook()">
+      <i class="bi bi-plus"></i>
+      Agregar Nuevo Autor
+    </button>
+  </div>
+  <hr />
+  <div *ngIf="!isLoading; else noAuthors" class="books-grid">
+    <div class="book-card" *ngFor="let a of book">
+      <div class="card-content">
+        <div class="book-header">
+          <i class="bi bi-book book-icon"></i>
+          <h2 class="book-title">{{ a?.title }}</h2>
+        </div>
+
+        <p class="book-description">{{ a.lastName }}</p>
+
+        <div class="action-buttons">
+          <button
+            class="action-btn view-btn"
+            title="Ver Detalles"
+            [routerLink]="['/detail-book', a.id]"
+          >
+            <i class="bi bi-eye"></i>
+            <span>Ver Detalles</span>
+          </button>
+
+          <button
+            class="action-btn edit-btn"
+            title="Editar"
+            [routerLink]="['/update-author', a.id]"
+          >
+            <i class="bi bi-pencil"></i>
+            <span>Editar</span>
+          </button>
+          <button
+            class="action-btn delete-btn"
+            title="Eliminar"
+            (click)="deleteBook(a.id)"
+          >
+            <i class="bi bi-trash"></i>
+            <span>Eliminar</span>
+          </button>
+        </div>
+
+        <div class="mt-3">
+          <div class="date-badge">
+            <i class="bi bi-calendar3"></i>
+            <span>{{ a.publishDate | date : "longDate" : "es" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje si no hay autores -->
+  <ng-template #noAuthors>
+    <h3 class="no-authors-message">No hay autores actualmente :(</h3>
+  </ng-template>
+
+  <nav *ngIf="totalPages > 1" class="mt-4">
+    <ul class="pagination justify-content-center">
+      <!-- Botón Anterior -->
+      <li class="page-item" [class.disabled]="page === 1">
+        <button
+          class="page-link"
+          (click)="changePage(page - 1)"
+          [disabled]="page === 1"
+        >
+          &laquo; Anterior
+        </button>
+      </li>
+
+      <!-- Números de página (máximo 20 visibles) -->
+      <li
+        *ngFor="let p of getVisiblePages()"
+        class="page-item"
+        [class.active]="p === page"
+      >
+        <button class="page-link" (click)="changePage(p)">{{ p }}</button>
+      </li>
+
+      <!-- Botón Siguiente -->
+      <li class="page-item" [class.disabled]="page === totalPages">
+        <button
+          class="page-link"
+          (click)="changePage(page + 1)"
+          [disabled]="page === totalPages"
+        >
+          Siguiente &raquo;
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<app-loading *ngIf="loadingService.isLoading$ | async"></app-loading>

@@ -1,0 +1,84 @@
+<div class="detail-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <div class="header-content">
+      <button class="back-button" [routerLink]="['/books']">
+        <i class="bi bi-arrow-left"></i>
+        <span>Volver</span>
+      </button>
+      <div class="title-wrapper">
+        <h1 class="main-title">{{ books.title }}</h1>
+        <p class="subtitle">Detalles del libro</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book Information Card -->
+  <div class="book-card">
+    <div class="book-header">
+      <div class="book-cover">
+        <i class="bi bi-book"></i>
+      </div>
+      <div class="book-info">
+        <h2 class="text-white">{{ books.title }}</h2>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h3 class="section-title text-black">
+        <i class="bi bi-info-circle"></i>
+        Resumen
+      </h3>
+      <div class="book-content">
+        <p class="book-description text-white">
+          {{ books.description || "No hay descripción disponible." }}
+        </p>
+      </div>
+    </div>
+    <div class="content-section">
+      <h3 class="section-title text-black">
+        <i class="bi bi-info-circle"></i>
+        Extracto
+      </h3>
+      <div class="book-content">
+        <p class="book-description text-white">
+          {{ books.excerpt || "No hay descripción disponible." }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Relacionado</h3>
+<hr />
+
+<div *ngIf="!isLoading; else noAuthors" class="books-grid">
+  <div class="book-card" *ngFor="let a of authors">
+    <div class="card-content">
+      <div class="book-header">
+        <i class="bi bi-person person-icon"></i>
+
+        <h2 class="book-title">{{ a.firstName }}</h2>
+      </div>
+
+      <p class="book-description">{{ a.lastName }}</p>
+
+      <div class="action-buttons">
+        <button
+          class="action-btn view-btn"
+          title="Ver Detalles"
+          [routerLink]="['/authors-detail', a.id]"
+        >
+          <i class="bi bi-eye"></i>
+          <span>Ver Detalles</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noAuthors>
+  <h3 class="no-authors-message">No hay autores actualmente :(</h3>
+</ng-template>
+
+<app-loading *ngIf="loadingService.isLoading$ | async"></app-loading>

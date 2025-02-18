@@ -1,0 +1,62 @@
+.navbar {
+    background: linear-gradient(to right, #4a148c, #7c4dff);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    .navbar-brand {
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+      
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  
+    .nav-link {
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-radius: 6px;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      &.active {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+  
+      i {
+        font-size: 1.1rem;
+      }
+    }
+  
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+      
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+ 
+  @media (max-width: 991.98px) {
+    .navbar-nav {
+      padding: 1rem 0;
+      
+      .nav-item {
+        margin: 0.25rem 0;
+      }
+      
+      .nav-link {
+        padding: 0.75rem 1rem;
+      }
+    }
+  }
+
+  .nav-link {
+    cursor: pointer;
+  }
+  

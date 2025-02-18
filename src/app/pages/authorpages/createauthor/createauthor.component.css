@@ -1,0 +1,178 @@
+author-form-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.header-section {
+  margin-bottom: 2rem;
+
+  .title-wrapper {
+    .main-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 0;
+    }
+
+    .subtitle {
+      color: #718096;
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  padding: 2rem;
+}
+
+.author-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      color: #4a5568;
+
+      i {
+        color: #7c4dff;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-color: #7c4dff;
+    box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.1);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #a0aec0;
+  }
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+  }
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #4a148c, #7c4dff);
+  color: white;
+  box-shadow: 0 4px 6px rgba(124, 77, 255, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(124, 77, 255, 0.3);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .header-section {
+    .subtitle {
+      color: #a0aec0;
+    }
+  }
+
+  .form-card {
+    background: #2d3748;
+    border-color: #4a5568;
+  }
+
+  .form-group {
+    .input-wrapper label {
+      color: #e2e8f0;
+    }
+  }
+
+  .form-control {
+    &:focus {
+      border-color: #7c4dff;
+      box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.2);
+    }
+
+    &::placeholder {
+      color: #718096;
+    }
+  }
+}
+.add-button {
+  background: linear-gradient(135deg, #4a148c, #7c4dff);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(124, 77, 255, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(124, 77, 255, 0.3);
+  }
+}
+
+.cancel-button {
+  background: linear-gradient(135deg, #b71c1c, #f44336);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(244, 67, 54, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(244, 67, 54, 0.3);
+  }
+}

@@ -1,0 +1,85 @@
+<div class="container mt-4">
+  <h2>Actualizar Autor</h2>
+</div>
+
+<hr />
+<div class="modal-body">
+  <form id="author-form" [formGroup]="updateForm">
+    <div class="mb-3">
+      <label for="fastName" class="form-label text-black">Nombre rápido:</label>
+      <input
+        type="text"
+        id="fastName"
+        class="form-control"
+        formControlName="fastName"
+      />
+      <div
+        *ngIf="
+          updateForm.get('fastName')?.invalid &&
+          updateForm.get('fastName')?.touched
+        "
+        class="text-danger"
+      >
+        Nombre rápido es requerido y debe tener al menos 3 caracteres.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="name" class="form-label text-blac">Nombre</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        formControlName="firstName"
+      />
+      <div
+        *ngIf="
+          updateForm.get('firstName')?.invalid &&
+          updateForm.get('firstName')?.touched
+        "
+        class="text-danger"
+      >
+        El nombre es requerido y debe tener al menos 3 caracteres.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="book" class="form-label text-black">Seleccionar Libro</label>
+      <select id="book" class="form-control" formControlName="idBook">
+        <option *ngFor="let book of books" [value]="book.id">
+          {{ book.title }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          updateForm.get('idBook')?.invalid && updateForm.get('idBook')?.touched
+        "
+        class="text-danger"
+      >
+        Debe seleccionar un libro.
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="cancel-button m-2"
+    [routerLink]="['/authors']"
+    routerLinkActive="router-link-active"
+  >
+    <i class="bi bi-x-lg"></i>
+    Cerrar
+  </button>
+
+  <button
+    type="submit"
+    class="add-button"
+    form="author-form"
+    [disabled]="updateForm.invalid"
+    (click)="updateAuthors()"
+  >
+    <i class="bi bi-check-lg"></i>
+    Guardar
+  </button>
+</div>
+<app-loading *ngIf="loadingService.isLoading$ | async"></app-loading>

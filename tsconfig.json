@@ -3,6 +3,25 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@pages/*": [
+       "app/pages/*"
+      ],
+      "@enums": [
+        "app/shared/enums/index.ts"
+      ],
+      "@models": [
+        "app/shared/models/index.ts"
+      ],
+      "@environments/*": [
+        "environments/*"
+      ], 
+    },
+    "forceConsistentCasingInFileNames": true,
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

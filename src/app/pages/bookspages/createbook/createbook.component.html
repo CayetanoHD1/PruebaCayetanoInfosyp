@@ -1,0 +1,117 @@
+<div class="book-form-container">
+  <div class="header-section">
+    <h1 class="main-title">Crear Nuevo Libro</h1>
+    <p class="subtitle">Complete los detalles del libro a continuación</p>
+  </div>
+
+  <div class="form-card">
+    <form id="book-form" [formGroup]="createForm">
+      <div class="form-group">
+        <label for="title" class="form-label text-black">
+          <i class="bi bi-book"></i>
+          Título
+        </label>
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          formControlName="title"
+          placeholder="Ingrese el título del libro"
+        />
+        <div
+          *ngIf="
+            createForm.get('title')?.invalid && createForm.get('title')?.touched
+          "
+          class="text-danger"
+        >
+          El título es requerido y debe tener al menos 3 caracteres.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="form-label text-black">
+          <i class="bi bi-text-paragraph"></i>
+          Descripción
+        </label>
+        <textarea
+          id="description"
+          class="form-control"
+          formControlName="description"
+          placeholder="Escriba una descripción detallada del libro"
+        ></textarea>
+        <div
+          *ngIf="
+            createForm.get('description')?.invalid &&
+            createForm.get('description')?.touched
+          "
+          class="text-danger"
+        >
+          La descripción es requerida y debe tener al menos 10 caracteres.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="excerpt" class="form-label text-black">
+          <i class="bi bi-quote"></i>
+          Extracto
+        </label>
+        <input
+          type="text"
+          id="excerpt"
+          class="form-control"
+          formControlName="excerpt"
+          placeholder="Ingrese un breve extracto del libro"
+        />
+        <div
+          *ngIf="
+            createForm.get('excerpt')?.invalid &&
+            createForm.get('excerpt')?.touched
+          "
+          class="text-danger"
+        >
+          El extracto es requerido y debe tener al menos 5 caracteres.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="publishDate" class="form-label text-black">
+          <i class="bi bi-calendar3"></i>
+          Fecha de Publicación
+        </label>
+        <input
+          type="date"
+          id="publishDate"
+          class="form-control"
+          formControlName="publishDate"
+        />
+        <div
+          *ngIf="
+            createForm.get('publishDate')?.invalid &&
+            createForm.get('publishDate')?.touched
+          "
+          class="text-danger"
+        >
+          La fecha de publicación es requerida.
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-button" [routerLink]="['/books']">
+          <i class="bi bi-x-lg"></i>
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="add-button"
+          [disabled]="createForm.invalid"
+          (click)="createBook()"
+        >
+          <i class="bi bi-check-lg"></i>
+          Guardar Libro
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-loading *ngIf="loadingService.isLoading$ | async"></app-loading>
