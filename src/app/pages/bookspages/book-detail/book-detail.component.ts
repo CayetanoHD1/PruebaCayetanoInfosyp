@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
-import { Author } from '@shared/interfaces/author.interface';
+import { IAuthor } from '@shared/interfaces/author.interface';
 import { AuthorsService } from '@shared/services/authors.service';
 import { BookService } from '@shared/services/book.service';
 import { LoadingService } from '@shared/services/loading.service';
@@ -15,7 +15,7 @@ import { LoadingService } from '@shared/services/loading.service';
 })
 export class BookDetailComponent implements OnInit {
   books: any;
-  authors: Author[] = [];
+  authors: IAuthor[] = [];
   isLoading: boolean = true;
 
   constructor(

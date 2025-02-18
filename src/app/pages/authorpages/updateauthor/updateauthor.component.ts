@@ -8,7 +8,8 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
-import { Author } from '@shared/interfaces/author.interface';
+import { IAuthor } from '@shared/interfaces/author.interface';
+import { IBooks } from '@shared/interfaces/books.interface';
 import { AuthorsService } from '@shared/services/authors.service';
 import { BookService } from '@shared/services/book.service';
 import { LoadingService } from '@shared/services/loading.service';
@@ -20,9 +21,9 @@ import { LoadingService } from '@shared/services/loading.service';
   styleUrl: './updateauthor.component.css',
 })
 export class UpdateauthorComponent implements OnInit {
-  authors!: Author;
+  authors!: IAuthor;
   public updateForm!: FormGroup;
-  books: any[] = [];
+  books: IBooks[] = [];
   id!: number;
 
   constructor(

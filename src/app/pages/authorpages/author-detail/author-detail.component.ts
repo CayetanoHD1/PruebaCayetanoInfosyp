@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
-import { Author } from '@shared/interfaces/author.interface';
+import { IAuthor } from '@shared/interfaces/author.interface';
+import { IBooks } from '@shared/interfaces/books.interface';
+
 import { AuthorsService } from '@shared/services/authors.service';
 import { BookService } from '@shared/services/book.service';
 import { LoadingService } from '@shared/services/loading.service';
@@ -14,8 +16,8 @@ import { LoadingService } from '@shared/services/loading.service';
   styleUrl: './author-detail.component.css',
 })
 export class AuthorDetailComponent {
-  authors!: Author;
-  books: any;
+  authors!: IAuthor;
+  books!: IBooks;
 
   constructor(
     private route: ActivatedRoute,

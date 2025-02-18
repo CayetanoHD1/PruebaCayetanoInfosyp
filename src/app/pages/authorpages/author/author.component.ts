@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
-import { Author } from '@shared/interfaces/author.interface';
+import { IAuthor } from '@shared/interfaces/author.interface';
 import { AuthorsService } from '@shared/services/authors.service';
 import { LoadingService } from '@shared/services/loading.service';
 
@@ -13,7 +13,7 @@ import { LoadingService } from '@shared/services/loading.service';
   imports: [CommonModule, RouterModule, LoadingComponent],
 })
 export class AuthorComponent {
-  authors: Author[] = [];
+  authors: IAuthor[] = [];
   totalRecords: number = 0;
   page: number = 1;
   pageSize: number = 20;

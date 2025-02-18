@@ -12,6 +12,29 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Steps to Run the Project
+
+To set up and run the project locally, follow these steps:
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Navigate to the project folder**:
+   ```bash
+   cd authorsapp
+   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Run the development server**:
+   ```bash
+   ng serve
+   ```
+5. **Open the application**:
+   - Open a browser and go to `http://localhost:4200/`
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
@@ -57,3 +80,4 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+

@@ -1,4 +1,4 @@
-export interface Author {
+export interface IAuthor {
     id: number;
     idBook:number
     firstName: string;
